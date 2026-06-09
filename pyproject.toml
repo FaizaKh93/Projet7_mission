@@ -1,0 +1,16 @@
+[project]
+name = "brainscanai"
+version = "0.1.0"
+description = "Exploration et modélisation d'images cérébrales - Détection de tumeurs"
+requires-python = ">=3.10"
+dependencies = [
+    "torch",
+    "torchvision",
+    "numpy",
+    "pandas",
+    "matplotlib",
+    "pillow",
+    "scikit-learn",
+    "jupyter",
+    "ipykernel",
+]

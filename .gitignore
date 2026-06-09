@@ -1,0 +1,42 @@
+# --- Données ---
+# Ignore tout le dossier data (images lourdes non versionnées)
+data/*
+# Exception : le fichier .txt de description du dataset est conservé
+!data/*.txt
+
+# --- Environnement virtuel ---
+# Créé par uv sync, contient toutes les librairies installées (lourd, non versionné)
+.venv/
+
+# --- Python ---
+# Fichiers compilés générés automatiquement par Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Jupyter ---
+# Sauvegardes automatiques créées par Jupyter à chaque exécution
+.ipynb_checkpoints/
+
+# --- Variables d'environnement ---
+# Peut contenir des clés API ou mots de passe
+.env
+.env.*
+
+# --- Artefacts de build Python ---
+*.egg-info/
+dist/
+build/
+
+# --- OS ---
+# Fichiers cachés macOS
+.DS_Store
+# Fichiers cachés Windows
+Thumbs.db
+desktop.ini
+
+# --- Éditeurs ---
+.vscode/settings.json
+.idea/
+*.swp
