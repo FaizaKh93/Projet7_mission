@@ -2,15 +2,21 @@
 name = "brainscanai"
 version = "0.1.0"
 description = "Exploration et modélisation d'images cérébrales - Détection de tumeurs"
-requires-python = ">=3.10"
+requires-python = ">=3.11,<3.12"
 dependencies = [
     "torch",
     "torchvision",
-    "numpy",
-    "pandas",
-    "matplotlib",
-    "pillow",
-    "scikit-learn",
-    "jupyter",
-    "ipykernel",
+    "numpy==1.26.4",
+    "pandas==2.2.2",
+    "matplotlib==3.9.2",
+    "pillow==10.4.0",
+    "scikit-learn==1.5.1",
+    "jupyter==1.0.0",
+    "ipykernel==6.29.4",
+    "opencv-python==4.10.0.84",
 ]
+
+[tool.uv.sources]
+# torch 2.2.2 CPU-only Windows Python 3.11 — meilleure compatibilité que 2.4.0
+torch = { url = "https://download.pytorch.org/whl/cpu/torch-2.2.2%2Bcpu-cp311-cp311-win_amd64.whl" }
+torchvision = { url = "https://download.pytorch.org/whl/cpu/torchvision-0.17.2%2Bcpu-cp311-cp311-win_amd64.whl" }
