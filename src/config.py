@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT_DIR      = Path(__file__).resolve().parents[1]
 
 # Dossier principal contenant toutes les images
-DATA_DIR      = ROOT_DIR / "data"
+DATA_DIR      = ROOT_DIR / "data" 
 
 # Dossier des images dont le label (cancer / normal) est connu
 LABELED_DIR   = DATA_DIR / "avec_labels"
@@ -22,3 +22,24 @@ NORMAL_DIR    = LABELED_DIR / "normal"
 
 # Dossier des notebooks, utile si un script doit y écrire des résultats
 NOTEBOOKS_DIR = ROOT_DIR / "notebooks"
+
+# Dossier où seront sauvegardés les vecteurs de features extraits par le modèle pré-entraîné
+FEATURES_DIR  = DATA_DIR / "features"
+FEATURES_DIR.mkdir(exist_ok=True)  # Crée le dossier s'il n'existe pas encore
+
+# Fichier CSV contenant les métadonnées de toutes les images (path, label, split)
+# Produit par l'étape 1, réutilisé par toutes les étapes suivantes
+METADATA_PATH = DATA_DIR / "metadata.csv"
+
+# Statistiques pixel calculées sur l'ensemble du dataset à l'étape 1
+# Utilisées pour normaliser les images avant de les passer au modèle ImageNet
+IMAGENET_MEAN = [0.485, 0.456, 0.406]  # Moyenne par canal RGB (standard ImageNet)
+IMAGENET_STD  = [0.229, 0.224, 0.225]  # Écart-type par canal RGB (standard ImageNet)
+
+# Taille cible des images pour les modèles pré-entraînés (ResNet attend du 224x224)
+IMG_SIZE = 224
+
+# Appareil de calcul : GPU si disponible, sinon CPU
+# torch.cuda.is_available() retourne True uniquement si un GPU NVIDIA avec CUDA est présent
+import torch
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
