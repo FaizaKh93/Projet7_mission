@@ -39,6 +39,16 @@ IMAGENET_STD  = [0.229, 0.224, 0.225]  # Écart-type par canal RGB (standard Ima
 # Taille cible des images pour les modèles pré-entraînés (ResNet attend du 224x224)
 IMG_SIZE = 224
 
+# Dossier où seront sauvegardés les résultats du clustering (étape 3)
+RESULTS_DIR = ROOT_DIR / "results"
+RESULTS_DIR.mkdir(exist_ok=True)
+
+# Nombre de clusters cible -- correspond aux 2 classes connues : cancer et normal
+N_CLUSTERS = 2
+
+# Graine aleatoire pour reproductibilite -- meme valeur dans tous les notebooks
+RANDOM_STATE = 42
+
 # Appareil de calcul : GPU si disponible, sinon CPU
 # torch.cuda.is_available() retourne True uniquement si un GPU NVIDIA avec CUDA est présent
 import torch
