@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT_DIR      = Path(__file__).resolve().parents[1]
 
 # Dossier principal contenant toutes les images
-DATA_DIR      = ROOT_DIR / "data" 
+DATA_DIR      = ROOT_DIR / "data"
 
 # Dossier des images dont le label (cancer / normal) est connu
 LABELED_DIR   = DATA_DIR / "avec_labels"
@@ -23,13 +23,17 @@ NORMAL_DIR    = LABELED_DIR / "normal"
 # Dossier des notebooks, utile si un script doit y écrire des résultats
 NOTEBOOKS_DIR = ROOT_DIR / "notebooks"
 
+# Dossier des données dérivées (CSV, features) — fichiers produits par les étapes de traitement
+PROCESSED_DIR = DATA_DIR / "processed"
+PROCESSED_DIR.mkdir(exist_ok=True)
+
 # Dossier où seront sauvegardés les vecteurs de features extraits par le modèle pré-entraîné
-FEATURES_DIR  = DATA_DIR / "features"
-FEATURES_DIR.mkdir(exist_ok=True)  # Crée le dossier s'il n'existe pas encore
+FEATURES_DIR  = PROCESSED_DIR / "features"
+FEATURES_DIR.mkdir(exist_ok=True)
 
 # Fichier CSV contenant les métadonnées de toutes les images (path, label, split)
 # Produit par l'étape 1, réutilisé par toutes les étapes suivantes
-METADATA_PATH = DATA_DIR / "metadata.csv"
+METADATA_PATH = PROCESSED_DIR / "metadata.csv"
 
 # Statistiques pixel calculées sur l'ensemble du dataset à l'étape 1
 # Utilisées pour normaliser les images avant de les passer au modèle ImageNet
