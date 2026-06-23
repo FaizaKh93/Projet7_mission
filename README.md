@@ -91,13 +91,23 @@ Entraînement et comparaison de 3 classifieurs MLP (PyTorch) sur les features Re
   - `results/confusion_matrices.png`, `results/learning_curves.png`
   - `results/model_A_supervised.pth`, `results/model_B_semi_supervised_dbscan.pth`, `results/model_C_semi_supervised_dbscan_aug.pth`
 
+## Choix des modèles et justifications
+
+| Modèle | Justification |
+|---|---|
+| **ResNet50** | He et al. (2015) — les connexions résiduelles permettent d'entraîner des réseaux très profonds sans dégradation du gradient. Pré-entraîné sur ImageNet (1.2M images), ResNet50 produit des features transférables vers des domaines médicaux même avec peu de données labelisées (Raghu et al., 2019). |
+| **K-Means** | Lloyd (1982) — algorithme de référence pour le clustering, rapide et adapté quand le nombre de clusters est connu (K=2 classes). Utilisé comme baseline de comparaison. |
+| **DBSCAN** | Ester et al. (1996) — détecte des clusters de forme arbitraire sans fixer K à l'avance et identifie les points aberrants comme bruit. Retenu comme méthode de labels faibles car son ARI (0.3064) est supérieur à K-Means (0.2947) sur ce dataset. |
+| **MLP** | Classifieur standard sur features pré-extraites (Goodfellow et al., 2016). Choisi pour sa légèreté : avec des features ResNet50 déjà discriminantes, un modèle léger suffit et réduit le risque de sur-apprentissage sur 80 images. |
+| **Semi-supervisé** | Chapelle et al. (2006) — le semi-supervisé est particulièrement adapté quand les données labelisées sont rares, cas typique en imagerie médicale où l'annotation experte est coûteuse. Ici, 80 images labelisées vs 1406 sans label justifient cette approche. |
+
 ## Résultats (test set, 20 images)
 
 | Modèle | Données d'entraînement | Accuracy | F2-score | ROC-AUC |
-|---|---|---|---|---|
-| A — Supervisé pur | 80 images (labels forts) | 0.90 | 0.8974 | 0.98 |
-| B — Semi-sup. DBSCAN | 1486 images (DBSCAN weak labels) | 0.85 | 0.8440 | 0.94 |
-| C — Semi-sup. DBSCAN + augmentation | ~2206 images | 0.90 | 0.8974 | 0.93 |
+|-------------------------------------|----------------------------------|------|--------|------|
+| A — Supervisé pur                   | 80 images (labels forts)         | 0.90 | 0.8974 | 0.98 |
+| B — Semi-sup. DBSCAN                | 1486 images (DBSCAN weak labels) | 0.85 | 0.8440 | 0.94 |
+| C — Semi-sup. DBSCAN + augmentation | ~2206 images                     | 0.90 | 0.8974 | 0.93 |
 
 Le modèle supervisé pur (A) reste le plus performant sur ce test set. Les labels faibles DBSCAN seuls (B) dégradent légèrement la performance par rapport à A ; l'ajout de données augmentées (C) compense cette dégradation et ramène accuracy/F2-score au niveau de A, sans toutefois le dépasser. À noter : le test set ne comportant que 20 images, ces écarts restent sensibles à chaque image individuelle.
 
