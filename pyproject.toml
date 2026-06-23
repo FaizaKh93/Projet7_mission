@@ -20,6 +20,6 @@ dependencies = [
 ]
 
 [tool.uv.sources]
-# torch 2.2.2 CPU-only Windows Python 3.11 — meilleure compatibilité que 2.4.0
-torch = { url = "https://download.pytorch.org/whl/cpu/torch-2.2.2%2Bcpu-cp311-cp311-win_amd64.whl" }
-torchvision = { url = "https://download.pytorch.org/whl/cpu/torchvision-0.17.2%2Bcpu-cp311-cp311-win_amd64.whl" }
+# torch 2.2.2 CUDA 12.1 Windows Python 3.11
+torch = { url = "https://download.pytorch.org/whl/cu121/torch-2.2.2%2Bcu121-cp311-cp311-win_amd64.whl" }
+torchvision = { url = "https://download.pytorch.org/whl/cu121/torchvision-0.17.2%2Bcu121-cp311-cp311-win_amd64.whl" }
