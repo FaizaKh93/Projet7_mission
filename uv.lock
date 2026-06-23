@@ -173,8 +173,8 @@ requires-dist = [
     { name = "plotly", specifier = "==5.22.0" },
     { name = "scikit-learn", specifier = "==1.5.1" },
     { name = "seaborn", specifier = "==0.13.2" },
-    { name = "torch", url = "https://download.pytorch.org/whl/cpu/torch-2.2.2%2Bcpu-cp311-cp311-win_amd64.whl" },
-    { name = "torchvision", url = "https://download.pytorch.org/whl/cpu/torchvision-0.17.2%2Bcpu-cp311-cp311-win_amd64.whl" },
+    { name = "torch", url = "https://download.pytorch.org/whl/cu121/torch-2.2.2%2Bcu121-cp311-cp311-win_amd64.whl" },
+    { name = "torchvision", url = "https://download.pytorch.org/whl/cu121/torchvision-0.17.2%2Bcu121-cp311-cp311-win_amd64.whl" },
     { name = "umap-learn", specifier = "==0.5.6" },
 ]
 
@@ -1778,8 +1778,8 @@ wheels = [
 
 [[package]]
 name = "torch"
-version = "2.2.2+cpu"
-source = { url = "https://download.pytorch.org/whl/cpu/torch-2.2.2%2Bcpu-cp311-cp311-win_amd64.whl" }
+version = "2.2.2+cu121"
+source = { url = "https://download.pytorch.org/whl/cu121/torch-2.2.2%2Bcu121-cp311-cp311-win_amd64.whl" }
 dependencies = [
     { name = "filelock" },
     { name = "fsspec" },
@@ -1800,7 +1800,7 @@ dependencies = [
     { name = "typing-extensions" },
 ]
 wheels = [
-    { url = "https://download.pytorch.org/whl/cpu/torch-2.2.2%2Bcpu-cp311-cp311-win_amd64.whl", hash = "sha256:88e63c916e3275fa30a220ee736423a95573b96072ded85e5c0171fd8f37a755" },
+    { url = "https://download.pytorch.org/whl/cu121/torch-2.2.2%2Bcu121-cp311-cp311-win_amd64.whl", hash = "sha256:efbcfdd4399197d06b32f7c0e1711c615188cdd65427b933648c7478fb880b3f" },
 ]
 
 [package.metadata]
@@ -1829,15 +1829,15 @@ provides-extras = ["opt-einsum", "optree"]
 
 [[package]]
 name = "torchvision"
-version = "0.17.2+cpu"
-source = { url = "https://download.pytorch.org/whl/cpu/torchvision-0.17.2%2Bcpu-cp311-cp311-win_amd64.whl" }
+version = "0.17.2+cu121"
+source = { url = "https://download.pytorch.org/whl/cu121/torchvision-0.17.2%2Bcu121-cp311-cp311-win_amd64.whl" }
 dependencies = [
     { name = "numpy" },
     { name = "pillow" },
     { name = "torch" },
 ]
 wheels = [
-    { url = "https://download.pytorch.org/whl/cpu/torchvision-0.17.2%2Bcpu-cp311-cp311-win_amd64.whl", hash = "sha256:54ae4b89038065e7393c65bc8ff141d1bf3c2f70f88badc834247666608ba9f4" },
+    { url = "https://download.pytorch.org/whl/cu121/torchvision-0.17.2%2Bcu121-cp311-cp311-win_amd64.whl", hash = "sha256:10ad542aab6b47dbe73c441381986d50a7ed5021cbe01d593a14477ec1f067a0" },
 ]
 
 [package.metadata]
@@ -1845,7 +1845,7 @@ requires-dist = [
     { name = "numpy" },
     { name = "pillow", specifier = ">=5.3.0,!=8.3.*" },
     { name = "scipy", marker = "extra == 'scipy'" },
-    { name = "torch", specifier = "==2.2.2" },
+    { name = "torch", specifier = "==2.2.2+cu121" },
 ]
 provides-extras = ["scipy"]
 
