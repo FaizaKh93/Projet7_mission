@@ -9,7 +9,7 @@ dependencies = [
     "numpy==1.26.4",
     "pandas==2.2.2",
     "matplotlib==3.9.2",
-    "pillow==10.4.0",
+    "pillow==12.2.0",
     "scikit-learn==1.5.1",
     "jupyter==1.0.0",
     "ipykernel==6.29.4",
