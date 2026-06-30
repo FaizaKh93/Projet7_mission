@@ -1,0 +1,3 @@
+Methode,Nb clusters,Points bruit,ARI,Silhouette
+K-Means,2,0,0.2947,0.5345
+DBSCAN,9,17,0.42,N/A

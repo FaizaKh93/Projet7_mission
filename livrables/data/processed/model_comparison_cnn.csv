@@ -1,0 +1,4 @@
+Modèle,Données train,Accuracy,F2-score,ROC-AUC
+A (CNN) - Supervisé pur,80 images (labels forts),0.9,0.8974,0.98
+B (CNN) - Semi-sup. DBSCAN,1486 images (DBSCAN weak labels),0.9,0.8974,0.91
+C (CNN) - Semi-sup. DBSCAN+aug,~2206 images (DBSCAN + augmentées),0.95,0.9494,1.0
